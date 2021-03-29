@@ -1,7 +1,15 @@
+import React from 'react';
+import Note from '../Note/Note';
+
 function Board() {
     return (
-        <div className="board">
-            <h1>Noteboard App</h1>
+        <div id="board">
+            <div id="board-title">
+                <h1>Noteboard App</h1>
+            </div>
+            <div id="notes-area">
+                <Note />
+            </div>
         </div>
     );
 }

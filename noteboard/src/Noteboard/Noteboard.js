@@ -1,11 +1,12 @@
+import React from 'react';
 import Board from './Board/Board';
-import Note from './Note/Note';
+import NewNote from './Note/NewNote';
 
 function Noteboard() {
     return (
         <div className="noteboard">
-          <Board />
-          <Note />
+            <NewNote />
+            <Board />
         </div>
       );
 }
