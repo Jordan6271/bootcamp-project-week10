@@ -2,13 +2,13 @@ import React from 'react';
 import Board from './Board/Board';
 import NewNote from './Note/NewNote';
 
-function Noteboard() {
+function Noteable() {
     return (
-        <div className="noteboard">
+        <div className="noteable">
             <NewNote />
             <Board />
         </div>
       );
 }
 
-export default Noteboard;
+export default Noteable;

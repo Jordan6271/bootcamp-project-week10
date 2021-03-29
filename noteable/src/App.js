@@ -1,10 +1,10 @@
 import './App.css';
-import Noteboard from './Noteboard/Noteboard';
+import Noteable from './Noteable/Noteable';
 
 function App() {
   return (
     <div className="App">
-      <Noteboard />
+      <Noteable />
     </div>
   );
 }
