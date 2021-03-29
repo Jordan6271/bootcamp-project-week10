@@ -17,10 +17,18 @@ function Note() {
                         <th>ID:</th>
                         <td></td>
                     </tr>
+                    <tr>
+                        <th>Username:</th>
+                        <td></td>
+                    </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <th>Title:</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>Attachment:</th>
                         <td></td>
                     </tr>
                     <tr>
@@ -30,6 +38,10 @@ function Note() {
                     <tr>
                         <th>Timestamp:</th>
                         <td>{timestamp()}</td>
+                    </tr>
+                    <tr>
+                        <th>Likes:</th>
+                        <td></td>
                     </tr>
                 </tbody>
             </Table>
