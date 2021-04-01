@@ -8,7 +8,6 @@ class NewNote extends React.Component {
         this.state = {
             username: ``,
             title: ``,
-            attachment: ``,
             description: ``
         }
     }
@@ -22,11 +21,10 @@ class NewNote extends React.Component {
 
     submitHandler(event) {
         event.preventDefault();
-        this.props.onsubmit(this.state.username, this.state.title, this.state.attachment, this.state.description, this.state.stamps);
+        this.props.onsubmit(this.state.username, this.state.title, this.state.description, this.state.stamps);
         this.setState({
             username: ``,
             title: ``,
-            attachment: ``,
             description: ``
         })
     }
@@ -43,11 +41,6 @@ class NewNote extends React.Component {
                     <Form.Group controlId="noteTitle">
                         <Form.Label>Title</Form.Label>
                         <Form.Control onChange={(e) => this.handleChange(e)} name="title" type="text" value={this.state.title} />
-                    </Form.Group>
-    
-                    <Form.Group controlId="noteAttachment">
-                        <Form.Label>Attachment</Form.Label>
-                        <Form.Control onChange={(e) => this.handleChange(e)} name="attachment" type="image" value={this.state.attachment} />
                     </Form.Group>
     
                     <Form.Group controlId="noteDescription">
