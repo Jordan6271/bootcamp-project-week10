@@ -1,7 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Table from 'react-bootstrap/Table';
 
 function Note() {
+    const[id, changeId] = useState(0);
+    const[username, changeUsername] = useState(`User1`);
+    const[title, changeTitle] = useState(`Test Title`);
+    const[attachment, changeAttachment] = useState(``);
+    const[description, changeDescription] = useState(`Test Description`);
+    const[stamps, changeStamps] = useState(0);
     
     const timestamp = () => {
         const now = new Date();
@@ -14,34 +20,22 @@ function Note() {
             <Table>
                 <thead>
                     <tr>
-                        <th>ID:</th>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th>Username:</th>
-                        <td></td>
+                        <td>{username}</td>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <th>Title:</th>
-                        <td></td>
+                        <th>{title}</th>
                     </tr>
                     <tr>
-                        <th>Attachment:</th>
-                        <td></td>
+                        <td>{attachment}</td>
                     </tr>
                     <tr>
-                        <th>Description:</th>
-                        <td></td>
+                        <td>{description}</td>
                     </tr>
                     <tr>
-                        <th>Timestamp:</th>
+                        <td>Stamps: {stamps}</td>
                         <td>{timestamp()}</td>
-                    </tr>
-                    <tr>
-                        <th>Likes:</th>
-                        <td></td>
                     </tr>
                 </tbody>
             </Table>
