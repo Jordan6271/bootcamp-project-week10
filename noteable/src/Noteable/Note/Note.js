@@ -5,7 +5,6 @@ function Note() {
     const[id, changeId] = useState(0);
     const[username, changeUsername] = useState(`User1`);
     const[title, changeTitle] = useState(`Test Title`);
-    const[attachment, changeAttachment] = useState(``);
     const[description, changeDescription] = useState(`Test Description`);
     const[stamps, changeStamps] = useState(0);
     
@@ -26,9 +25,6 @@ function Note() {
                 <tbody>
                     <tr>
                         <th>{title}</th>
-                    </tr>
-                    <tr>
-                        <td>{attachment}</td>
                     </tr>
                     <tr>
                         <td>{description}</td>

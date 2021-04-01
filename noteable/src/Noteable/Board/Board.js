@@ -12,9 +12,6 @@ class Board extends React.Component {
                     {current.title}
                 </td>
                 <td>
-                    {current.attachment}
-                </td>
-                <td>
                     {current.description}
                 </td>
                 <td>
@@ -39,7 +36,6 @@ class Board extends React.Component {
                             <tr>
                                 <th>Username</th>
                                 <th>Title</th>
-                                <th>Attachment</th>
                                 <th>Description</th>
                                 <th>Stamps</th>
                                 <th>Timestamp</th>

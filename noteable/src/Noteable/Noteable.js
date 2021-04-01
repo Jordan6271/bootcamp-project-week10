@@ -20,8 +20,8 @@ class Noteable extends React.Component {
         super(props)
         this.state = {
             notes: [
-                {username: `User1`, title: `Test Title`, attachment: `Test Attachment`, description: `Test Description`, stamps: 0},
-                {username: `User2`, title: `My Note`, attachment: ``, description: `Interesting ideas.`, stamps: 100}
+                {username: `User1`, title: `Test Title`, description: `Test Description`, stamps: 0, timestamp: `${new Date().toLocaleString()}`},
+                {username: `User2`, title: `My Note`, description: `Interesting ideas.`, stamps: 100, timestamp: `${new Date().toLocaleString()}`}
             ]
         }
     }
@@ -35,8 +35,8 @@ class Noteable extends React.Component {
         )
       }
 
-    updateNotes(username, title, attachment, description) {
-        const listItem = {username, title, attachment, description};
+    updateNotes(username, title, description) {
+        const listItem = {username, title, description};
         this.setState((state) => ({
             notes: state.listItems.concat(listItem)
         }), () => localStorage.setItem(`list`, JSON.stringify(this.state.notes)))
@@ -58,7 +58,7 @@ class Noteable extends React.Component {
                 <Container>
                     <Switch>
                         <Route path='/new-note'>
-                            <NewNote onsubmit={(username, title, attachment, description) => this.updateNotes(username, title, attachment, description)} />
+                            <NewNote onsubmit={(username, title, description) => this.updateNotes(username, title, description)} />
                         </Route>
                         <Route exact path='/'>
                             <Board notes={this.state.notes} />
