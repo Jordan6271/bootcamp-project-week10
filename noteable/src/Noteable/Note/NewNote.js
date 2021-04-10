@@ -13,7 +13,7 @@ class NewNote extends React.Component {
 			description: ``,
 			stamps: 0,
 			currentTime: ``,
-			// id: 0,
+			id: 2,
 			colour: Colour[0],
 		};
 	}
@@ -22,6 +22,19 @@ class NewNote extends React.Component {
 		this.setState({
 			currentTime: `${new Date().toLocaleString()}`,
 		});
+	}
+
+	updateId() {
+		const lastNote = this.props.notes.slice(-1);
+		const lastNoteId = lastNote.id;
+		if (lastNoteId >= this.state.id) {
+			this.setState({ id: lastNoteId + 1 });
+		}
+	}
+
+	updateVariables() {
+		this.updateId();
+		this.updateTime();
 	}
 
 	handleColour(event) {
@@ -64,6 +77,7 @@ class NewNote extends React.Component {
 		const newState = {};
 		newState[event.target.name] = event.target.value;
 		this.setState(newState);
+		this.updateVariables();
 	}
 
 	submitHandler(event) {
@@ -74,7 +88,7 @@ class NewNote extends React.Component {
 			this.state.description,
 			this.state.stamps,
 			this.state.currentTime,
-			// this.state.id,
+			this.state.id,
 			this.state.colour
 		);
 		this.setState({
@@ -83,7 +97,6 @@ class NewNote extends React.Component {
 			description: ``,
 			stamps: 0,
 			currentTime: ``,
-			// id: this.state.id + 1,
 			colour: Colour[0],
 		});
 	}
@@ -143,12 +156,12 @@ class NewNote extends React.Component {
 					<Form.Group controlId="noteStatic">
 						<Text type="hidden" value={this.state.stamps} />
 						<Text type="hidden" value={this.state.currentTime} />
-						{/* <Text type="hidden" value={this.state.id} /> */}
+						<Text type="hidden" value={this.state.id} />
 						<Text type="hidden" value={this.state.colour} />
 					</Form.Group>
 
 					<Button
-						onClick={() => this.updateTime()}
+						onClick={() => this.updateVariables()}
 						variant="danger"
 						type="submit"
 					>
