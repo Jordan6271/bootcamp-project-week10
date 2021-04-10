@@ -2,18 +2,12 @@ import React from "react";
 import Button from "react-bootstrap/Button";
 
 class Board extends React.Component {
-	stampCounter() {
-		this.setState({
-			stamps: +1,
-		});
-	}
-
 	buildRows() {
 		return this.props.notes.map((current) => (
 			<div className="row" key={current.id}>
 				<div
 					id="user-notes"
-					className="text-center col-6 m-auto"
+					className="text-center col-xl-6 m-auto"
 					style={{
 						backgroundImage: `url(${current.colour})`,
 						backgroundRepeat: "no-repeat",
@@ -48,10 +42,13 @@ class Board extends React.Component {
 					</p>
 					<p className="pt-4">
 						<span id="stamps" className="m-auto text-flex-start">
-							<Button onClick={() => this.stampCounter()}>
-								Stamp
+							<Button
+								className={current.stampStyle}
+								onClick={() => this.props.onClick(current.id)}
+							>
+								{current.stampText}
 							</Button>
-							{current.stamps}
+							{current.stamped}
 						</span>
 						<span className="mx-5">{current.currentTime}</span>
 					</p>
