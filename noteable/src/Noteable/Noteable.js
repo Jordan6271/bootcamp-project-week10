@@ -1,5 +1,6 @@
 import React from "react";
 
+import Colour from "./Note/Colour";
 import Board from "./Board/Board";
 import NewNote from "./Note/NewNote";
 
@@ -20,31 +21,51 @@ class Noteable extends React.Component {
 					title: `Test Title`,
 					description: `Test Description`,
 					stamps: 0,
-					timestamp: `${new Date().toLocaleString()}`,
+					currentTime: `${new Date().toLocaleString()}`,
+					// id: `test0`,
+					colour: Colour[0],
 				},
 				{
 					username: `User2`,
 					title: `My Note`,
 					description: `Interesting ideas.`,
 					stamps: 100,
-					timestamp: `${new Date().toLocaleString()}`,
+					currentTime: `${new Date().toLocaleString()}`,
+					// id: `test1`,
+					colour: Colour[4],
 				},
 			],
 		};
 	}
 
+	stampCounter() {
+		this.setState({
+			stamps: +1,
+		});
+		console.log(`Working`);
+	}
+
 	componentDidMount() {
+		console.log(this.state.notes[0].colour);
+		console.log(this.state.notes[1].colour);
 		const listContents = localStorage.getItem(`notelist`);
 		this.setState({
 			listItems: JSON.parse(listContents) || [],
 		});
 	}
 
-	updateNotes(username, title, description) {
-		const listItem = { username, title, description };
+	updateNotes(username, title, description, stamps, currentTime, colour) {
+		const listItem = {
+			username,
+			title,
+			description,
+			stamps,
+			currentTime,
+			colour,
+		};
 		this.setState(
 			(state) => ({
-				notes: state.listItems.concat(listItem),
+				notes: state.notes.concat(listItem),
 			}),
 			() =>
 				localStorage.setItem(
@@ -75,11 +96,21 @@ class Noteable extends React.Component {
 					<Switch>
 						<Route path="/new-note">
 							<NewNote
-								onsubmit={(username, title, description) =>
+								onsubmit={(
+									username,
+									title,
+									description,
+									stamps,
+									currentTime,
+									colour
+								) =>
 									this.updateNotes(
 										username,
 										title,
-										description
+										description,
+										stamps,
+										currentTime,
+										colour
 									)
 								}
 							/>
