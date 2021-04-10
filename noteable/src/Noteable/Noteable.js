@@ -20,7 +20,9 @@ class Noteable extends React.Component {
 					username: `User1`,
 					title: `Test Title`,
 					description: `Test Description`,
-					stamps: 0,
+					stamped: false,
+					stampStyle: "btn-success",
+					stampText: "Stamp",
 					currentTime: `${new Date().toLocaleString()}`,
 					id: 0,
 					colour: Colour[0],
@@ -29,7 +31,9 @@ class Noteable extends React.Component {
 					username: `User2`,
 					title: `My Note`,
 					description: `Interesting ideas.`,
-					stamps: 100,
+					stamped: true,
+					stampStyle: "btn-danger",
+					stampText: "Unstamp",
 					currentTime: `${new Date().toLocaleString()}`,
 					id: 1,
 					colour: Colour[4],
@@ -38,11 +42,18 @@ class Noteable extends React.Component {
 		};
 	}
 
-	stampCounter() {
-		this.setState({
-			stamps: +1,
-		});
-		console.log(`Working`);
+	stampToggle(currentId) {
+		let newState = Object.assign({}, this.state);
+		if (this.state.notes[currentId].stamped === false) {
+			newState.notes[currentId].stamped = true;
+			newState.notes[currentId].stampStyle = "btn-danger";
+			newState.notes[currentId].stampText = "Unstamp";
+		} else {
+			newState.notes[currentId].stamped = false;
+			newState.notes[currentId].stampStyle = "btn-success";
+			newState.notes[currentId].stampText = "Stamp";
+		}
+		this.setState(newState);
 	}
 
 	componentDidMount() {
@@ -52,12 +63,24 @@ class Noteable extends React.Component {
 		});
 	}
 
-	updateNotes(username, title, description, stamps, currentTime, id, colour) {
+	updateNotes(
+		username,
+		title,
+		description,
+		stamped,
+		stampStyle,
+		stampText,
+		currentTime,
+		id,
+		colour
+	) {
 		const listItem = {
 			username,
 			title,
 			description,
-			stamps,
+			stamped,
+			stampStyle,
+			stampText,
 			currentTime,
 			id,
 			colour,
@@ -100,7 +123,9 @@ class Noteable extends React.Component {
 									username,
 									title,
 									description,
-									stamps,
+									stamped,
+									stampStyle,
+									stampText,
 									currentTime,
 									id,
 									colour
@@ -109,7 +134,9 @@ class Noteable extends React.Component {
 										username,
 										title,
 										description,
-										stamps,
+										stamped,
+										stampStyle,
+										stampText,
 										currentTime,
 										id,
 										colour
@@ -118,7 +145,12 @@ class Noteable extends React.Component {
 							/>
 						</Route>
 						<Route exact path="/">
-							<Board notes={this.state.notes} />
+							<Board
+								notes={this.state.notes}
+								onClick={(currentId) =>
+									this.stampToggle(currentId)
+								}
+							/>
 						</Route>
 						<Route path="/">Error: 404 not found</Route>
 					</Switch>
