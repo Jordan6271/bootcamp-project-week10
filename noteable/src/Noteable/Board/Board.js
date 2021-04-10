@@ -10,10 +10,10 @@ class Board extends React.Component {
 
 	buildRows() {
 		return this.props.notes.map((current) => (
-			<div className="row col-12" key={current.username}>
+			<div className="row" key={current.id}>
 				<div
 					id="user-notes"
-					className="text-center"
+					className="text-center col-6 m-auto"
 					style={{
 						backgroundImage: `url(${current.colour})`,
 						backgroundRepeat: "no-repeat",

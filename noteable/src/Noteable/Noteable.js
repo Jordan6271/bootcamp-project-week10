@@ -22,7 +22,7 @@ class Noteable extends React.Component {
 					description: `Test Description`,
 					stamps: 0,
 					currentTime: `${new Date().toLocaleString()}`,
-					// id: `test0`,
+					id: 0,
 					colour: Colour[0],
 				},
 				{
@@ -31,7 +31,7 @@ class Noteable extends React.Component {
 					description: `Interesting ideas.`,
 					stamps: 100,
 					currentTime: `${new Date().toLocaleString()}`,
-					// id: `test1`,
+					id: 1,
 					colour: Colour[4],
 				},
 			],
@@ -46,21 +46,20 @@ class Noteable extends React.Component {
 	}
 
 	componentDidMount() {
-		console.log(this.state.notes[0].colour);
-		console.log(this.state.notes[1].colour);
 		const listContents = localStorage.getItem(`notelist`);
 		this.setState({
 			listItems: JSON.parse(listContents) || [],
 		});
 	}
 
-	updateNotes(username, title, description, stamps, currentTime, colour) {
+	updateNotes(username, title, description, stamps, currentTime, id, colour) {
 		const listItem = {
 			username,
 			title,
 			description,
 			stamps,
 			currentTime,
+			id,
 			colour,
 		};
 		this.setState(
@@ -96,12 +95,14 @@ class Noteable extends React.Component {
 					<Switch>
 						<Route path="/new-note">
 							<NewNote
+								notes={this.state.notes}
 								onsubmit={(
 									username,
 									title,
 									description,
 									stamps,
 									currentTime,
+									id,
 									colour
 								) =>
 									this.updateNotes(
@@ -110,6 +111,7 @@ class Noteable extends React.Component {
 										description,
 										stamps,
 										currentTime,
+										id,
 										colour
 									)
 								}
