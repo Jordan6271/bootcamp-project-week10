@@ -23,7 +23,7 @@ class Board extends React.Component {
 							marginBottom: "25px",
 						}}
 					>
-						{current.username}
+						{current.username} / {current.id}
 					</h2>
 					<h3
 						style={{
@@ -48,7 +48,7 @@ class Board extends React.Component {
 							>
 								{current.stampText}
 							</Button>
-							{current.stamped}
+							Stamps: {current.stamps}
 						</span>
 						<span className="mx-5">{current.currentTime}</span>
 					</p>

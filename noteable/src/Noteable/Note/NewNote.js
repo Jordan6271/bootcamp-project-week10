@@ -11,6 +11,7 @@ class NewNote extends React.Component {
 			username: ``,
 			title: ``,
 			description: ``,
+			stamps: Math.floor(Math.random() * 101),
 			stamped: false,
 			stampStyle: "btn-success",
 			stampText: "Stamp",
@@ -27,7 +28,7 @@ class NewNote extends React.Component {
 	}
 
 	updateId() {
-		const lastNote = this.props.notes.slice(-1);
+		const lastNote = this.props.notes.slice(-1)[0];
 		const lastNoteId = lastNote.id;
 		if (lastNoteId >= this.state.id) {
 			this.setState({ id: lastNoteId + 1 });
@@ -88,6 +89,7 @@ class NewNote extends React.Component {
 			this.state.username,
 			this.state.title,
 			this.state.description,
+			this.state.stamps,
 			this.state.stamped,
 			this.state.stampStyle,
 			this.state.stampText,
@@ -100,6 +102,10 @@ class NewNote extends React.Component {
 			title: ``,
 			description: ``,
 			currentTime: ``,
+			stamps: Math.floor(Math.random() * 101),
+			stamped: false,
+			stampStyle: "btn-success",
+			stampText: "Stamp",
 			colour: Colour[0],
 		});
 	}

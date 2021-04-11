@@ -20,6 +20,7 @@ class Noteable extends React.Component {
 					username: `User1`,
 					title: `Test Title`,
 					description: `Test Description`,
+					stamps: 0,
 					stamped: false,
 					stampStyle: "btn-success",
 					stampText: "Stamp",
@@ -31,6 +32,7 @@ class Noteable extends React.Component {
 					username: `User2`,
 					title: `My Note`,
 					description: `Interesting ideas.`,
+					stamps: 100,
 					stamped: true,
 					stampStyle: "btn-danger",
 					stampText: "Unstamp",
@@ -45,10 +47,12 @@ class Noteable extends React.Component {
 	stampToggle(currentId) {
 		let newState = Object.assign({}, this.state);
 		if (this.state.notes[currentId].stamped === false) {
+			newState.notes[currentId].stamps++;
 			newState.notes[currentId].stamped = true;
 			newState.notes[currentId].stampStyle = "btn-danger";
 			newState.notes[currentId].stampText = "Unstamp";
 		} else {
+			newState.notes[currentId].stamps--;
 			newState.notes[currentId].stamped = false;
 			newState.notes[currentId].stampStyle = "btn-success";
 			newState.notes[currentId].stampText = "Stamp";
@@ -67,6 +71,7 @@ class Noteable extends React.Component {
 		username,
 		title,
 		description,
+		stamps,
 		stamped,
 		stampStyle,
 		stampText,
@@ -78,6 +83,7 @@ class Noteable extends React.Component {
 			username,
 			title,
 			description,
+			stamps,
 			stamped,
 			stampStyle,
 			stampText,
@@ -123,6 +129,7 @@ class Noteable extends React.Component {
 									username,
 									title,
 									description,
+									stamps,
 									stamped,
 									stampStyle,
 									stampText,
@@ -134,6 +141,7 @@ class Noteable extends React.Component {
 										username,
 										title,
 										description,
+										stamps,
 										stamped,
 										stampStyle,
 										stampText,
