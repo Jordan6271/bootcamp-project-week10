@@ -60,7 +60,7 @@ class Noteable extends React.Component {
 	componentDidMount() {
 		const listContents = localStorage.getItem(`notelist`);
 		this.setState({
-			notes: JSON.parse(listContents) || [],
+			notes: JSON.parse(listContents) || this.state.notes,
 		});
 	}
 
