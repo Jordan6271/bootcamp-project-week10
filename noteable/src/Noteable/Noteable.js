@@ -1,6 +1,7 @@
 import React from "react";
 
 import Colour from "./Note/Colour";
+import Stamp from "./Note/Stamp";
 import Board from "./Board/Board";
 import NewNote from "./Note/NewNote";
 
@@ -22,7 +23,7 @@ class Noteable extends React.Component {
 					description: `Test Description`,
 					stamps: 0,
 					stamped: false,
-					stampStyle: "btn-success",
+					stampStyle: Stamp[0],
 					stampText: "Stamp",
 					currentTime: `${new Date().toLocaleString()}`,
 					id: 0,
@@ -34,7 +35,7 @@ class Noteable extends React.Component {
 					description: `Interesting ideas.`,
 					stamps: 100,
 					stamped: true,
-					stampStyle: "btn-danger",
+					stampStyle: Stamp[1],
 					stampText: "Unstamp",
 					currentTime: `${new Date().toLocaleString()}`,
 					id: 1,
@@ -49,13 +50,15 @@ class Noteable extends React.Component {
 		if (this.state.notes[currentId].stamped === false) {
 			newState.notes[currentId].stamps++;
 			newState.notes[currentId].stamped = true;
-			newState.notes[currentId].stampStyle = "btn-danger";
-			newState.notes[currentId].stampText = "Unstamp";
+			newState.notes[currentId].stampStyle = Stamp[1];
+			newState.notes[currentId].stampText = "Stamp";
+			console.log(`Stamp`);
 		} else {
 			newState.notes[currentId].stamps--;
 			newState.notes[currentId].stamped = false;
-			newState.notes[currentId].stampStyle = "btn-success";
-			newState.notes[currentId].stampText = "Stamp";
+			newState.notes[currentId].stampStyle = Stamp[0];
+			newState.notes[currentId].stampText = "Unstamp";
+			console.log(`Unstamp`);
 		}
 		this.setState(newState);
 	}
