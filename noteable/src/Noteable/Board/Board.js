@@ -73,7 +73,7 @@ class Board extends React.Component {
 	render() {
 		return (
 			<div id="board">
-				<div id="board-title">
+				<div className="mt-2">
 					<h1>My Board</h1>
 				</div>
 				<div id="notes-area" className="container">
