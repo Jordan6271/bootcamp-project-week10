@@ -18,25 +18,23 @@ class Noteable extends React.Component {
 		this.state = {
 			notes: [
 				{
-					username: `User1`,
+					username: `Test User`,
 					title: `Test Title`,
 					description: `Test Description`,
 					stamps: 0,
 					stamped: false,
 					stampStyle: Stamp[0],
-					stampText: "Stamp",
 					currentTime: `${new Date().toLocaleString()}`,
 					id: 0,
 					colour: Colour[0],
 				},
 				{
-					username: `User2`,
+					username: `Another User`,
 					title: `My Note`,
-					description: `Interesting ideas.`,
+					description: `I have some very interesting ideas.`,
 					stamps: 100,
 					stamped: true,
 					stampStyle: Stamp[1],
-					stampText: "Unstamp",
 					currentTime: `${new Date().toLocaleString()}`,
 					id: 1,
 					colour: Colour[4],
@@ -51,14 +49,10 @@ class Noteable extends React.Component {
 			newState.notes[currentId].stamps++;
 			newState.notes[currentId].stamped = true;
 			newState.notes[currentId].stampStyle = Stamp[1];
-			newState.notes[currentId].stampText = "Stamp";
-			console.log(`Stamp`);
 		} else {
 			newState.notes[currentId].stamps--;
 			newState.notes[currentId].stamped = false;
 			newState.notes[currentId].stampStyle = Stamp[0];
-			newState.notes[currentId].stampText = "Unstamp";
-			console.log(`Unstamp`);
 		}
 		this.setState(newState);
 	}
@@ -77,7 +71,6 @@ class Noteable extends React.Component {
 		stamps,
 		stamped,
 		stampStyle,
-		stampText,
 		currentTime,
 		id,
 		colour
@@ -89,7 +82,6 @@ class Noteable extends React.Component {
 			stamps,
 			stamped,
 			stampStyle,
-			stampText,
 			currentTime,
 			id,
 			colour,
@@ -109,7 +101,14 @@ class Noteable extends React.Component {
 	render() {
 		return (
 			<Router>
-				<Navbar bg="light" expand="md">
+				<Navbar
+					bg="dark"
+					variant="dark"
+					expand="md"
+					style={{
+						height: "10vh",
+					}}
+				>
 					<Navbar.Brand>Noteable</Navbar.Brand>
 					<Navbar.Toggle aria-controls="basic-navbar-nav" />
 					<Navbar.Collapse id="basic-navbar-nav">
@@ -135,7 +134,6 @@ class Noteable extends React.Component {
 									stamps,
 									stamped,
 									stampStyle,
-									stampText,
 									currentTime,
 									id,
 									colour
@@ -147,7 +145,6 @@ class Noteable extends React.Component {
 										stamps,
 										stamped,
 										stampStyle,
-										stampText,
 										currentTime,
 										id,
 										colour

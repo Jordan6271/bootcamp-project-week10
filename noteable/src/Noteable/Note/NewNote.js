@@ -15,7 +15,6 @@ class NewNote extends React.Component {
 			stamps: Math.floor(Math.random() * 101),
 			stamped: false,
 			stampStyle: Stamp[0],
-			stampText: "Stamp",
 			currentTime: ``,
 			id: 2,
 			colour: Colour[0],
@@ -93,7 +92,6 @@ class NewNote extends React.Component {
 			this.state.stamps,
 			this.state.stamped,
 			this.state.stampStyle,
-			this.state.stampText,
 			this.state.currentTime,
 			this.state.id,
 			this.state.colour
@@ -106,17 +104,29 @@ class NewNote extends React.Component {
 			stamps: Math.floor(Math.random() * 101),
 			stamped: false,
 			stampStyle: Stamp[0],
-			stampText: "Stamp",
 			colour: Colour[0],
 		});
 	}
 
 	render() {
 		return (
-			<div id="new-note">
-				<Form onSubmit={(event) => this.submitHandler(event)}>
+			<div
+				className="p-5"
+				id="new-note"
+				style={{
+					fontWeight: "bold",
+					height: "90vh",
+				}}
+			>
+				<Form
+					onSubmit={(event) => this.submitHandler(event)}
+					className="p-4"
+					style={{
+						backgroundColor: "rgba(255,255,255,0.25)",
+					}}
+				>
 					<Form.Group controlId="noteUsername">
-						<Form.Label>Username</Form.Label>
+						<Form.Label>Username:</Form.Label>
 						<Form.Control
 							onChange={(event) => this.handleChange(event)}
 							name="username"
@@ -126,7 +136,7 @@ class NewNote extends React.Component {
 					</Form.Group>
 
 					<Form.Group controlId="noteTitle">
-						<Form.Label>Title</Form.Label>
+						<Form.Label>Title:</Form.Label>
 						<Form.Control
 							onChange={(event) => this.handleChange(event)}
 							name="title"
@@ -136,7 +146,7 @@ class NewNote extends React.Component {
 					</Form.Group>
 
 					<Form.Group controlId="noteDescription">
-						<Form.Label>Description</Form.Label>
+						<Form.Label>Description:</Form.Label>
 						<Form.Control
 							onChange={(event) => this.handleChange(event)}
 							name="description"
@@ -146,7 +156,7 @@ class NewNote extends React.Component {
 					</Form.Group>
 
 					<Form.Group controlId="noteColour">
-						<Form.Label>Note Colour</Form.Label>
+						<Form.Label>Note Colour:</Form.Label>
 						<br />
 						<select
 							className="form-select"
@@ -169,14 +179,15 @@ class NewNote extends React.Component {
 						<Text type="hidden" value={this.state.id} />
 						<Text type="hidden" value={this.state.colour} />
 					</Form.Group>
-
-					<Button
-						onClick={() => this.updateVariables()}
-						variant="danger"
-						type="submit"
-					>
-						Pin
-					</Button>
+					<div className="justify-content-center mx-auto">
+						<Button
+							onClick={() => this.updateVariables()}
+							variant="danger"
+							type="submit"
+						>
+							Pin
+						</Button>
+					</div>
 				</Form>
 			</div>
 		);
