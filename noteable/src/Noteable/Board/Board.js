@@ -12,41 +12,54 @@ class Board extends React.Component {
 						backgroundImage: `url(${current.colour})`,
 						backgroundRepeat: "no-repeat",
 						backgroundSize: "cover",
-						width: "screenWidth",
-						height: "screenHeight",
+						width: "35rem",
+						height: "35rem",
 					}}
 				>
 					<h2
 						id="note-username"
 						style={{
-							paddingTop: "125px",
-							marginBottom: "25px",
+							paddingTop: "8rem",
+							marginBottom: "0.5rem",
 						}}
 					>
-						{current.username} / {current.id}
+						{current.username}
 					</h2>
 					<h3
 						style={{
-							height: "50px",
+							height: "4rem",
 						}}
 					>
 						{current.title}
 					</h3>
 					<p
 						style={{
-							height: "200px",
+							height: "12rem",
 							justifyContent: "center",
 						}}
 					>
 						{current.description}
 					</p>
 					<p className="pt-4">
-						<span id="stamps" className="m-auto text-flex-start">
+						<span id="stamps" className="m-auto">
 							<Button
-								className={current.stampStyle}
-								onClick={() => this.props.onClick(current.id)}
+								style={{
+									backgroundColor: "rgba(0, 0, 0, 0)",
+									boxShadow: "none",
+									border: "none",
+								}}
 							>
-								{current.stampText}
+								<img
+									src={current.stampStyle}
+									alt=""
+									onClick={() =>
+										this.props.onClick(current.id)
+									}
+									style={{
+										width: "2rem",
+										height: "2rem",
+									}}
+								/>
 							</Button>
 							Stamps: {current.stamps}
 						</span>

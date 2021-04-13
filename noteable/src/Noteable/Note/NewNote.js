@@ -1,5 +1,6 @@
 import React from "react";
 import Colour from "./Colour";
+import Stamp from "./Stamp";
 import Form from "react-bootstrap/Form";
 import Text from "react-bootstrap/FormText";
 import Button from "react-bootstrap/Button";
@@ -13,7 +14,7 @@ class NewNote extends React.Component {
 			description: ``,
 			stamps: Math.floor(Math.random() * 101),
 			stamped: false,
-			stampStyle: "btn-success",
+			stampStyle: Stamp[0],
 			stampText: "Stamp",
 			currentTime: ``,
 			id: 2,
@@ -104,7 +105,7 @@ class NewNote extends React.Component {
 			currentTime: ``,
 			stamps: Math.floor(Math.random() * 101),
 			stamped: false,
-			stampStyle: "btn-success",
+			stampStyle: Stamp[0],
 			stampText: "Stamp",
 			colour: Colour[0],
 		});
