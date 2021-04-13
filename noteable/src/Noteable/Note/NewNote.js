@@ -1,6 +1,11 @@
 import React from "react";
+
 import Colour from "./Colour";
 import Stamp from "./Stamp";
+
+import toastr from "toastr";
+import "toastr/build/toastr.min.css";
+
 import Form from "react-bootstrap/Form";
 import Text from "react-bootstrap/FormText";
 import Button from "react-bootstrap/Button";
@@ -18,6 +23,23 @@ class NewNote extends React.Component {
 			currentTime: ``,
 			id: 2,
 			colour: Colour[0],
+		};
+		toastr.options = {
+			closeButton: true,
+			debug: false,
+			extendedTimeOut: "1000",
+			hideDuration: "1000",
+			hideEasing: "linear",
+			hideMethod: "slideUp",
+			newestOnTop: false,
+			onclick: null,
+			positionClass: "toast-bottom-full-width",
+			preventDuplicates: true,
+			progressBar: true,
+			showDuration: "300",
+			showEasing: "swing",
+			showMethod: "slideDown",
+			timeOut: "5000",
 		};
 	}
 
@@ -80,11 +102,35 @@ class NewNote extends React.Component {
 		const newState = {};
 		newState[event.target.name] = event.target.value;
 		this.setState(newState);
+		if (newState.username !== ``) {
+			document.getElementById(`username-error`).innerHTML = ``;
+		}
+		if (newState.title !== ``) {
+			document.getElementById(`title-error`).innerHTML = ``;
+		}
+		if (newState.description !== ``) {
+			document.getElementById(`description-error`).innerHTML = ``;
+		}
 		this.updateVariables();
 	}
 
 	submitHandler(event) {
 		event.preventDefault();
+		if (this.state.username === ``) {
+			document.getElementById(`username-error`).innerHTML =
+				"You must enter a username!";
+		} else if (this.state.title === ``) {
+			document.getElementById(`title-error`).innerHTML =
+				"You must enter a title!";
+		} else if (this.state.description === ``) {
+			document.getElementById(`description-error`).innerHTML =
+				"You must enter a description!";
+		} else {
+			this.formSubmit();
+		}
+	}
+
+	formSubmit() {
 		this.props.onsubmit(
 			this.state.username,
 			this.state.title,
@@ -96,6 +142,7 @@ class NewNote extends React.Component {
 			this.state.id,
 			this.state.colour
 		);
+		toastr.success(`Note pinned`);
 		this.setState({
 			username: ``,
 			title: ``,
@@ -133,6 +180,14 @@ class NewNote extends React.Component {
 							type="text"
 							value={this.state.username}
 						/>
+						<span
+							className="error"
+							style={{
+								color: "#9A0000",
+							}}
+						>
+							<p id="username-error"></p>
+						</span>
 					</Form.Group>
 
 					<Form.Group controlId="noteTitle">
@@ -143,6 +198,14 @@ class NewNote extends React.Component {
 							type="text"
 							value={this.state.title}
 						/>
+						<span
+							className="error"
+							style={{
+								color: "#9A0000",
+							}}
+						>
+							<p id="title-error"></p>
+						</span>
 					</Form.Group>
 
 					<Form.Group controlId="noteDescription">
@@ -153,6 +216,14 @@ class NewNote extends React.Component {
 							type="text"
 							value={this.state.description}
 						/>
+						<span
+							className="error"
+							style={{
+								color: "#9A0000",
+							}}
+						>
+							<p id="description-error"></p>
+						</span>
 					</Form.Group>
 
 					<Form.Group controlId="noteColour">
