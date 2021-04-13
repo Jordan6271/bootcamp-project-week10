@@ -1,3 +1,16 @@
+div {
+    font-family: PullMeOut, sans-serif;
+}
+
+#navbar, #new-note, #note-description {
+    font-size: 1.25rem;
+}
+
 #toast-container > .toast {
     background-color: green;
+}
+
+@font-face {
+    font-family: PullMeOut; 
+    src: url(Noteable/Fonts/PullMeOut.otf);
 }

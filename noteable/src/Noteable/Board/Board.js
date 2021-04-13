@@ -6,8 +6,7 @@ class Board extends React.Component {
 		return this.props.notes.map((current) => (
 			<div className="row" key={current.id}>
 				<div
-					id="user-notes"
-					className="text-center col-xl-6 m-auto"
+					className="m-auto"
 					style={{
 						backgroundImage: `url(${current.colour})`,
 						backgroundRepeat: "no-repeat",
@@ -17,7 +16,6 @@ class Board extends React.Component {
 					}}
 				>
 					<h2
-						id="note-username"
 						style={{
 							paddingTop: "8rem",
 							marginBottom: "0.5rem",
@@ -33,6 +31,7 @@ class Board extends React.Component {
 						{current.title}
 					</h3>
 					<p
+						id="note-description"
 						style={{
 							height: "12rem",
 							justifyContent: "center",
@@ -41,7 +40,7 @@ class Board extends React.Component {
 						{current.description}
 					</p>
 					<p className="pt-4">
-						<span id="stamps" className="m-auto">
+						<span className="m-auto">
 							<Button
 								style={{
 									backgroundColor: "rgba(0, 0, 0, 0)",
@@ -72,9 +71,15 @@ class Board extends React.Component {
 
 	render() {
 		return (
-			<div id="board">
+			<div id="board" className="text-center">
 				<div className="mt-2">
-					<h1>My Board</h1>
+					<h1
+						style={{
+							fontSize: "4rem",
+						}}
+					>
+						My Board
+					</h1>
 				</div>
 				<div id="notes-area" className="container">
 					{this.buildRows()}

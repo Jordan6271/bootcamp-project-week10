@@ -60,7 +60,7 @@ class Noteable extends React.Component {
 	componentDidMount() {
 		const listContents = localStorage.getItem(`notelist`);
 		this.setState({
-			listItems: JSON.parse(listContents) || [],
+			notes: JSON.parse(listContents) || [],
 		});
 	}
 
@@ -104,19 +104,20 @@ class Noteable extends React.Component {
 				<Navbar
 					bg="dark"
 					variant="dark"
+					id="navbar"
 					expand="md"
 					style={{
 						height: "10vh",
 					}}
 				>
-					<Navbar.Brand>Noteable</Navbar.Brand>
+					<Navbar.Brand className="mr-5">Noteable</Navbar.Brand>
 					<Navbar.Toggle aria-controls="basic-navbar-nav" />
 					<Navbar.Collapse id="basic-navbar-nav">
 						<Nav className="mr-auto">
-							<Link className="nav-link" to="/">
+							<Link className="nav-link mx-2" to="/">
 								Board
 							</Link>
-							<Link className="nav-link" to="/new-note">
+							<Link className="nav-link mx-2" to="/new-note">
 								New Note
 							</Link>
 						</Nav>
