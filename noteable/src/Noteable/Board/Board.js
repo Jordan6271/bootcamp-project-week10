@@ -82,7 +82,7 @@ class Board extends React.Component {
 	render() {
 		return (
 			<div id="board" className="text-center">
-				<div className="mt-2">
+				<div className="mt-5 pt-2 mt-lg-4">
 					<h1
 						style={{
 							fontSize: "4rem",

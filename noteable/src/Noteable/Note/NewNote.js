@@ -158,11 +158,10 @@ class NewNote extends React.Component {
 	render() {
 		return (
 			<div
-				className="p-5"
+				className="p-5 mt-5"
 				id="new-note"
 				style={{
 					fontWeight: "bold",
-					height: "90vh",
 					fontSize: "1.25rem",
 				}}
 			>

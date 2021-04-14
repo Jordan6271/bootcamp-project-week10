@@ -9,6 +9,7 @@ function App() {
 			style={{
 				backgroundImage: `url(${Corkboard})`,
 				fontFamily: "PullMeOut, sans-serif",
+				minHeight: "100vh",
 			}}
 		>
 			<Noteable />

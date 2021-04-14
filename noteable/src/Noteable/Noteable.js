@@ -118,7 +118,7 @@ class Noteable extends React.Component {
 				<Navbar
 					bg="dark"
 					variant="dark"
-					id="navbar"
+					className="fixed-top"
 					expand="md"
 					style={{
 						height: "10vh",
@@ -138,7 +138,7 @@ class Noteable extends React.Component {
 						</Nav>
 					</Navbar.Collapse>
 				</Navbar>
-				<Container>
+				<Container className="pt-lg-5">
 					<Switch>
 						<Route path="/new-note">
 							<NewNote
