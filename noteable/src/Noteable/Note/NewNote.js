@@ -163,6 +163,7 @@ class NewNote extends React.Component {
 				style={{
 					fontWeight: "bold",
 					height: "90vh",
+					fontSize: "1.25rem",
 				}}
 			>
 				<Form

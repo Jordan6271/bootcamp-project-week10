@@ -122,6 +122,7 @@ class Noteable extends React.Component {
 					expand="md"
 					style={{
 						height: "10vh",
+						fontSize: "1.25rem",
 					}}
 				>
 					<Navbar.Brand className="mr-5">Noteable</Navbar.Brand>

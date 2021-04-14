@@ -44,7 +44,7 @@ class Board extends React.Component {
 						id="note-description"
 						style={{
 							height: "12rem",
-							justifyContent: "center",
+							fontSize: "1.25rem",
 						}}
 					>
 						{current.description}
