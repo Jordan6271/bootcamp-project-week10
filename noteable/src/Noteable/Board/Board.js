@@ -15,9 +15,19 @@ class Board extends React.Component {
 						height: "35rem",
 					}}
 				>
+					<Button
+						className="btn-danger"
+						style={{
+							marginLeft: "25rem",
+							marginTop: "3rem",
+						}}
+						onClick={() => this.props.onRemove(current.id)}
+					>
+						Remove
+					</Button>
 					<h2
 						style={{
-							paddingTop: "8rem",
+							paddingTop: "3rem",
 							marginBottom: "0.5rem",
 						}}
 					>
@@ -52,7 +62,7 @@ class Board extends React.Component {
 									src={current.stampStyle}
 									alt=""
 									onClick={() =>
-										this.props.onClick(current.id)
+										this.props.onStamp(current.id)
 									}
 									style={{
 										width: "2rem",
