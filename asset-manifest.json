@@ -1,0 +1,35 @@
+{
+  "files": {
+    "main.css": "/bootcamp-project-week10/static/css/main.49011d2d.chunk.css",
+    "main.js": "/bootcamp-project-week10/static/js/main.b54a6b8c.chunk.js",
+    "main.js.map": "/bootcamp-project-week10/static/js/main.b54a6b8c.chunk.js.map",
+    "runtime-main.js": "/bootcamp-project-week10/static/js/runtime-main.35105b63.js",
+    "runtime-main.js.map": "/bootcamp-project-week10/static/js/runtime-main.35105b63.js.map",
+    "static/css/2.fe6a4e7f.chunk.css": "/bootcamp-project-week10/static/css/2.fe6a4e7f.chunk.css",
+    "static/js/2.40a1f53a.chunk.js": "/bootcamp-project-week10/static/js/2.40a1f53a.chunk.js",
+    "static/js/2.40a1f53a.chunk.js.map": "/bootcamp-project-week10/static/js/2.40a1f53a.chunk.js.map",
+    "static/js/3.c37750f3.chunk.js": "/bootcamp-project-week10/static/js/3.c37750f3.chunk.js",
+    "static/js/3.c37750f3.chunk.js.map": "/bootcamp-project-week10/static/js/3.c37750f3.chunk.js.map",
+    "index.html": "/bootcamp-project-week10/index.html",
+    "static/css/2.fe6a4e7f.chunk.css.map": "/bootcamp-project-week10/static/css/2.fe6a4e7f.chunk.css.map",
+    "static/css/main.49011d2d.chunk.css.map": "/bootcamp-project-week10/static/css/main.49011d2d.chunk.css.map",
+    "static/js/2.40a1f53a.chunk.js.LICENSE.txt": "/bootcamp-project-week10/static/js/2.40a1f53a.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/bootcamp-project-week10/static/media/PullMeOut.280d57df.otf",
+    "static/media/corkboard.c68b82d0.png": "/bootcamp-project-week10/static/media/corkboard.c68b82d0.png",
+    "static/media/note-blue.7c80a9d5.png": "/bootcamp-project-week10/static/media/note-blue.7c80a9d5.png",
+    "static/media/note-green.27be8414.png": "/bootcamp-project-week10/static/media/note-green.27be8414.png",
+    "static/media/note-orange.a835fc16.png": "/bootcamp-project-week10/static/media/note-orange.a835fc16.png",
+    "static/media/note-pink.eb2c2ad7.png": "/bootcamp-project-week10/static/media/note-pink.eb2c2ad7.png",
+    "static/media/note-purple.c791a323.png": "/bootcamp-project-week10/static/media/note-purple.c791a323.png",
+    "static/media/note-yellow.c0482302.png": "/bootcamp-project-week10/static/media/note-yellow.c0482302.png",
+    "static/media/stamped.3d1dd2e2.png": "/bootcamp-project-week10/static/media/stamped.3d1dd2e2.png",
+    "static/media/unstamped.b4c25c40.png": "/bootcamp-project-week10/static/media/unstamped.b4c25c40.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.35105b63.js",
+    "static/css/2.fe6a4e7f.chunk.css",
+    "static/js/2.40a1f53a.chunk.js",
+    "static/css/main.49011d2d.chunk.css",
+    "static/js/main.b54a6b8c.chunk.js"
+  ]
+}
