@@ -43,6 +43,20 @@ class Noteable extends React.Component {
 		};
 	}
 
+	removeNote(currentId) {
+		const notelist = JSON.parse(localStorage.getItem(`notelist`));
+		const index = this.state.notes.indexOf(this.state.notes[currentId]);
+		if (currentId > 1) {
+			notelist.splice(index, 1);
+			localStorage.setItem(`notelist`, JSON.stringify(notelist));
+			this.componentDidMount();
+		} else {
+			alert(
+				`This is a test note, it cannot be removed. Try removing one of your own.`
+			);
+		}
+	}
+
 	stampToggle(currentId) {
 		let newState = Object.assign({}, this.state);
 		if (this.state.notes[currentId].stamped === false) {
@@ -156,8 +170,11 @@ class Noteable extends React.Component {
 						<Route exact path="/">
 							<Board
 								notes={this.state.notes}
-								onClick={(currentId) =>
+								onStamp={(currentId) =>
 									this.stampToggle(currentId)
+								}
+								onRemove={(currentId) =>
+									this.removeNote(currentId)
 								}
 							/>
 						</Route>
